@@ -2,4 +2,13 @@
     max-width: 24px;
     max-height: 24px;
     padding-top: 19px;
+    padding-left: 17px;
 }
+@media screen and (max-width:425px){
+    .intro__edit-button{
+        padding-left: 1px;
+        max-width: 18px;
+    max-height: 18px;
+    }
+  }
+  

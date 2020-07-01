@@ -9,4 +9,6 @@
 .elements{
     padding-top: 51px;
     min-height: 744px;
+    display: flex;
+    justify-content: center;
 }

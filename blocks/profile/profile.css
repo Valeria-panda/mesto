@@ -4,9 +4,14 @@
 @import url(./__button/profile__button.css);
 
 .profile{
-    max-height:120px;
+    min-height:120px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    padding-top:40px;
+}
+@media screen and (max-width:680px){
+    .profile{
+        flex-direction: column;
+    }
 }
