@@ -17,3 +17,14 @@
   opacity: 0.8;
   transition: ease-in-out 0.3s;
 }
+@media screen and (max-width: 513px) {
+  .popup__submit {
+    max-width: 280px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .popup__submit {
+    max-width: 250px;
+    margin: 0 20px 25px;
+  }
+}

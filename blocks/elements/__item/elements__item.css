@@ -3,9 +3,9 @@
   background-color: #ffffff;
   border-radius: 10px;
 }
-.elements__item:nth-child(5) {
+/*.elements__item:nth-child(5) {
   grid-column: 2 / 3;
 }
 .elements__item:nth-child(6) {
   grid-column: 3 / 4;
-}
+}*/

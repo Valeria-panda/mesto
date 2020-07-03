@@ -17,3 +17,8 @@
   opacity: 0.6;
   transition: ease-in-out 0.3s;
 }
+@media screen and (max-width:385px){
+  .popup__button{
+  margin-right: 0;
+  }
+}
