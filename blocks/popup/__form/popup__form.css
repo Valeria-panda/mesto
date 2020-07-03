@@ -1,0 +1,12 @@
+.popup__form {
+  min-width: 430px;
+  max-height: 330px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  position: fixed;
+  left: 50%;
+  margin-left: -215px;
+  top: 425.5px;
+  border-radius: 10px;
+}
