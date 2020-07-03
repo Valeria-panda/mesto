@@ -26,12 +26,12 @@
                         <li><p class="intro__subtitle">Исследователь океана</p></li>
                     </ul>
                     <ul class="intro">
-                        <li><img class="intro__edit-button" src="./images/Edit Button.svg"></li>
+                        <li><button  type="button" class="intro__edit-button"></button></li>
                     </ul>
                 </div>
             </div>
             <div class="profile__section">
-                <img class="profile__button" src="images/Add Button.png">
+                <button class="profile__button"></button>
             </div>
         </section>
         <section class="elements section">
@@ -88,22 +88,71 @@
         </section>
 
       </main>
-      <!--<section class="popup popup_opened">
-        <div class="popup__container">
-            <img class="popup__close-icon" src="images/Close Icon.svg">
-            <form class="popup__form">    
-                <h1 class="popup__title">Редактировать профиль</h1>
-                <label for="username" data-icon="u"></label>
-                <input class="popup__field" id="username" name="username" type="text" placeholder="name">
-                <label for="user" data-icon="u"></label>
-                <input class="popup__field" id="user" name="user" type="text" placeholder="who are you">
-                <input class="popup__submit" type="submit" value="save">
+      <section class="popup">
+          <div class="popup__background"></div>
+            <form class="popup__form">
+                <button type="submit" class="popup__button"></button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input class="popup__input popup__input-name" type="text" value="Жак-Ив Кусто">
+                <input class="popup__input popup__input-job" type="text" value="Исследователь океана">
+                <button type="submit" class="popup__submit">Сохранить</button>
             </form>
-        </div>
-    </section>!-->
+        </section>
       <footer class="footer section">
           <p class="footer__copyright">© 2020 Mesto Russia</p>
       </footer>
     </div>
+    <script>
+            let editButton = document.querySelector('.intro__edit-button');
+            let popup = document.querySelector('.popup');
+            let popupClose = document.querySelector('.popup__button');
+            let popupOpened = document.querySelector('.popup');
+            
+            
+                
+            
+            let formElement = document.querySelector('.popup__form');
+            function formElementSubmitHandler (evt) {
+                    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+                        // Так мы можем определить свою логику отправки.
+                        // О том, как это делать, расскажем позже.
+
+                // Находим поля формы в DOM
+                let nameInput = formElement.querySelector('.popup__input-name');
+                let jobInput = formElement.querySelector('.popup__input-job');
+                 
+                // Получите значение полей из свойства value
+                nameInput.value;
+                jobInput.value;
+                
+                // Выберите элементы, куда должны быть вставлены значения полей
+                let intro = document.querySelector('.intro');
+                let introTitle = intro.querySelector('.intro__title');
+                let introSubTitle = intro.querySelector('.intro__subtitle'); 
+                            
+
+                // Вставьте новые значения с помощью textContent
+                introTitle.textContent = nameInput.value;
+                introSubTitle.textContent = jobInput.value;
+            }
+
+                // Прикрепляем обработчик к форме:
+                // он будет следить за событием “submit” - «отправка»
+                formElement.addEventListener('submit', formElementSubmitHandler);
+                
+                function showClick() {
+                    popupOpened.classList.add('popup_opened');
+                }
+                
+                editButton.addEventListener('click', showClick);
+                
+                function closeForm() {
+                popupOpened.classList.remove('popup_opened');
+                formElement.reset();
+                }
+                popupClose.addEventListener('click', closeForm);  
+                
+               
+    </script>
 </body>
 </html>

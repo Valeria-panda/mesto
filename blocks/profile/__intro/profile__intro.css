@@ -1,16 +1,16 @@
-.profile__intro{
-    display: flex;
-    justify-content: center;
+.profile__intro {
+  display: flex;
+  justify-content: center;
 
-    padding-left: 3.75px;
-    padding-top: 18px;
-    min-width: 336px;
-    min-height: 77px;
+  padding-left: 3.75px;
+  padding-top: 18px;
+  min-width: 336px;
+  min-height: 77px;
 }
-@media screen and (max-width:425px){
-    .profile__intro{
-        min-width: 280px;
+@media screen and (max-width: 425px) {
+  .profile__intro {
+    min-width: 280px;
     min-height: 66px;
     text-align: center;
-    }
+  }
 }

@@ -1,8 +1,11 @@
 @import url(./__title/intro__title.css);
 @import url(./__subtitle/intro__subtitle.css);
 @import url(./__edit-button/intro__edit-button.css);
-.intro{
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.intro {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

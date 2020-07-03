@@ -1,9 +1,4 @@
-.section{
-    max-width: 882px;
-    width: 100%;
-}
-@media screen and (max-width:425px){
-    .section{
-  
-    }
+.section {
+  max-width: 882px;
+  width: 100%;
 }
