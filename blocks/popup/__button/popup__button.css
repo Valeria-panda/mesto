@@ -1,5 +1,5 @@
 .popup__button {
-  background-image: url(../../../images/Close\ Icon.svg);
+  background-image: url(../../../images/closeIcon.svg);
   border: none;
   box-shadow: none;
   min-height: 40.7px;
@@ -12,6 +12,7 @@
   align-self: flex-end;
   margin-right: -40px;
   margin-top: -40px;
+  cursor: pointer;
 }
 .popup__button:hover {
   opacity: 0.6;

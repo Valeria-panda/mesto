@@ -12,15 +12,15 @@
   <body class="root">
     <div class="page">
       <header class="header section">
-          <img class="header__logo-image" src="./images/header_logo.svg" alt="логотип сайта">
+          <img class="header__logo-image" src="./images/headerlogo.svg" alt="логотип сайта">
       </header>
       <main class="content section">
         <section class="profile section">
           <div class="profile__section">
-            <img class="profile__avatar" src="./images/profile_1.jpg" alt="аватар профиля">
+            <img class="profile__avatar" src="./images/profileava.jpg" alt="аватар профиля">
             <div class="profile__intro">
               <div class="intro">
-                <h1 class="intro__title">Жак-Ив Кусто</h1>
+                <p class="intro__title">Жак-Ив Кусто</p>
                 <p class="intro__subtitle">Исследователь океана</p>
               </div>
               <div class="intro">
@@ -33,45 +33,45 @@
         <section class="elements section">
           <ul class="elements__list">
             <li class="elements__item">
-              <img src="./images/kirill-pershin-1088404-unsplash.png" alt="фотография в вашем профиле" class="elements__item-img">
+              <img src="./images/elements1.png" alt="фотография в вашем профиле" class="elements__item-img">
               <div class="elements__text">
                 <h3 class="elements__text-title">Карачаевск</h3>
-                <img class="elements__text-like" src="images/Vector.svg" alt="фотография в вашем профиле">
+                <button type="button" class="elements__text-like"></button>
               </div>
             </li>
             <li class="elements__item">
-              <img src="./images/kirill-pershin-1404681-unsplash.png" alt="фотография в вашем профиле" class="elements__item-img">
+              <img src="./images/elements2.png" alt="фотография в вашем профиле" class="elements__item-img">
               <div class="elements__text">
                 <h3 class="elements__text-title">Гора Эльбрус</h3>
-                <img class="elements__text-like" src="images/Vector.svg" alt="фотография в вашем профиле">
+                <button type="button" class="elements__text-like"></button>
               </div>
             </li>
             <li class="elements__item">
-              <img src="./images/kirill-pershin-1556355-unsplash.png" alt="фотография в вашем профиле" class="elements__item-img">
+              <img src="./images/elements3.png" alt="фотография в вашем профиле" class="elements__item-img">
               <div class="elements__text">
                 <h3 class="elements__text-title">Домбай</h3>
-                <img class="elements__text-like" src="images/Vector.svg" alt="фотография в вашем профиле">
+                <button type="button" class="elements__text-like"></button>
               </div>
             </li>
             <li class="elements__item">
-              <img src="./images/kirill-pershin-1088404-unsplash.png" alt="фотография в вашем профиле" class="elements__item-img">
+              <img src="./images/elements1.png" alt="фотография в вашем профиле" class="elements__item-img">
               <div class="elements__text">
                 <h3 class="elements__text-title">Карачаевск</h3>
-                <img class="elements__text-like" src="images/Vector.svg" alt="фотография в вашем профиле">
+                <button type="button" class="elements__text-like"></button>
               </div>
             </li>
             <li class="elements__item">
-              <img src="./images/kirill-pershin-1404681-unsplash.png" alt="фотография в вашем профиле" class="elements__item-img">
+              <img src="./images/elements2.png" alt="фотография в вашем профиле" class="elements__item-img">
               <div class="elements__text">
                 <h3 class="elements__text-title">Гора Эльбрус</h3>
-                <img class="elements__text-like" src="images/Vector.svg" alt="фотография в вашем профиле">
+                <button type="button" class="elements__text-like"></button>
               </div>
             </li>
             <li class="elements__item">
-              <img src="./images/kirill-pershin-1556355-unsplash.png" alt="фотография в вашем профиле" class="elements__item-img">
+              <img src="./images/elements3.png" alt="фотография в вашем профиле" class="elements__item-img">
               <div class="elements__text">
                 <h3 class="elements__text-title">Домбай</h3>
-                <img class="elements__text-like" src="images/Vector.svg" alt="фотография в вашем профиле">
+                <button type="button" class="elements__text-like"></button>
               </div>
             </li>
           </ul>
@@ -79,11 +79,11 @@
       </main>
       <section class="popup">
           <div class="popup__background"></div>
-          <form class="popup__form" name="popup" action="#" method="GET">
-            <button type="submit" class="popup__button"></button>
+          <form class="popup__form" name="popup" action="#" method="#">
+            <button type="reset" class="popup__button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__input popup__input-name" type="text" value="Жак-Ив Кусто"/>
-            <input class="popup__input popup__input-job" type="text" value="Исследователь океана"/>
+            <input name="name-input" class="popup__input popup__input_name" type="text" value="Жак-Ив Кусто" required placeholder="Введите имя">
+            <input name="job-input" class="popup__input popup__input_job" type="text" value="Исследователь океана" required placeholder="Чем вы занимаетесь?">
             <button type="submit" class="popup__submit">Сохранить</button>
           </form>
       </section>
@@ -91,52 +91,6 @@
         <p class="footer__copyright">© 2020 Mesto Russia</p>
       </footer>
     </div>
-    <script>
-
-      let editButton = document.querySelector(".intro__edit-button");
-      let popup = document.querySelector(".popup");
-      let popupClose = document.querySelector(".popup__button");
-      let popupOpened = document.querySelector(".popup");
-      let formElement = document.querySelector(".popup__form");
-
-      function formElementSubmitHandler(evt) {
-        evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-        // Так мы можем определить свою логику отправки.
-        // О том, как это делать, расскажем позже.
-
-        // Находим поля формы в DOM
-        let nameInput = formElement.querySelector(".popup__input-name");
-        let jobInput = formElement.querySelector(".popup__input-job");
-
-        // Получите значение полей из свойства value
-        nameInput.value;
-        jobInput.value;
-
-        // Выберите элементы, куда должны быть вставлены значения полей
-        let intro = document.querySelector(".intro");
-        let introTitle = intro.querySelector(".intro__title");
-        let introSubTitle = intro.querySelector(".intro__subtitle");
-
-        // Вставьте новые значения с помощью textContent
-        introTitle.textContent = nameInput.value;
-        introSubTitle.textContent = jobInput.value;
-      }
-
-      // Прикрепляем обработчик к форме:
-      // он будет следить за событием “submit” - «отправка»
-      formElement.addEventListener("submit", formElementSubmitHandler);
-
-      function showClick() {
-        popupOpened.classList.add("popup_opened");
-      }
-
-      editButton.addEventListener("click", showClick);
-
-      function closeForm() {
-        popupOpened.classList.remove("popup_opened");
-        formElement.reset();
-      }
-      popupClose.addEventListener("click", closeForm);
-    </script>
+    <script src="./script.js/script.js"></script>
   </body>
 </html>

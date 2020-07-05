@@ -1,11 +1,10 @@
-@import url(./_opened/popup_opened.css);
 @import url(./__background/popup__background.css);
 @import url(./__form/popup__form.css);
 @import url(./__input/popup__input.css);
+@import url(./__input/_name/popup__input_name.css);
+@import url(./__input/_job/popup__input_job.css);
 @import url(./__title/popup__title.css);
 @import url(./__button/popup__button.css);
-@import url(./__input-job/popup__input-job.css);
-@import url(./__input-name/popup__input-name.css);
 @import url(./__submit/popup__submit.css);
 
 .popup {

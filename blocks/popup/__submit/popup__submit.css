@@ -3,7 +3,7 @@
   width: 100%;
   min-height: 50.15px;
   height: 100%;
-  background-color: #000000;
+  background-color: rgb(0, 0, 0);
   color: #ffffff;
   border: none;
   box-shadow: none;
@@ -11,10 +11,11 @@
   margin: 18.26px 36px 36.51px;
   border-radius: 2px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .popup__submit:hover {
-  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.8);
   transition: ease-in-out 0.3s;
 }
 @media screen and (max-width: 513px) {

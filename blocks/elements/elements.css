@@ -4,11 +4,14 @@
 @import url(./__text-title/elements__text-title.css);
 @import url(./__text-like/elements__text-like.css);
 @import url(./__item-img/elements__item-img.css);
-@import url(./__like/elements__like.css);
 
 .elements {
   padding-top: 51px;
-  min-height: 744px;
   display: flex;
   justify-content: center;
+}
+@media screen and (max-width: 425px) {
+  .elements {
+    padding-top: 36px;
+  }
 }
