@@ -30,7 +30,6 @@ function formElementSubmitHandler(evt) {
 popupClose.addEventListener("click", closeForm);
 formElement.addEventListener("submit", formElementSubmitHandler);
 editButton.addEventListener("click", showClick);
-popupClose.addEventListener("click", closeForm);
 
 
 /*function toggleclick() {
