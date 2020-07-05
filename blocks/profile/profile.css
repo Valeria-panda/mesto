@@ -1,6 +1,7 @@
 @import url(./__section/profile__section.css);
 @import url(./__avatar/profile__avatar.css);
 @import url(./__intro/profile__intro.css);
+@import url(./__edit-button/profile__edit-button.css);
 @import url(./__button/profile__button.css);
 
 .profile {

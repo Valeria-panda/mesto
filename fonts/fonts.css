@@ -2,20 +2,20 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  src: url("./Inter-Regular.woff2") format("woff2"),
-    url("./Inter-Regular.woff") format("woff");
+  src: url("./interregular.woff2") format("woff2"),
+    url("./interregular.woff") format("woff");
 }
 @font-face {
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  src: url("./Inter-Medium.woff2") format("woff2"),
-       url("./Inter-Medium.woff") format("woff");
+  src: url("./intermedium.woff2") format("woff2"),
+       url("./intermedium.woff") format("woff");
 }
 @font-face {
   font-family: "Inter";
   font-style: normal;
   font-weight: 900;
-  src: url("./Inter-Black.woff2") format("woff2"),
-    url("./Inter-Black.woff") format("woff");
+  src: url("./interblack.woff2") format("woff2"),
+    url("./interblack.woff") format("woff");
 }

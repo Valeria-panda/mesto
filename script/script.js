@@ -1,4 +1,5 @@
-const editButton = document.querySelector(".intro__edit-button");
+const profile = document.querySelector(".profile");
+const editButton = profile.querySelector(".profile__edit-button");
 const popup = document.querySelector(".popup");
 const popupClose = document.querySelector(".popup__button");
 const popupOpened = document.querySelector(".popup");
@@ -23,7 +24,10 @@ function formElementSubmitHandler(evt) {
   evt.preventDefault(); 
   introTitle.textContent = nameInput.value;
   introSubTitle.textContent = jobInput.value;
+  closeForm();
 }
+
+popupClose.addEventListener("click", closeForm);
 formElement.addEventListener("submit", formElementSubmitHandler);
 editButton.addEventListener("click", showClick);
 popupClose.addEventListener("click", closeForm);
