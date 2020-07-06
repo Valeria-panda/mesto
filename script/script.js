@@ -12,8 +12,8 @@ const introSubTitle = intro.querySelector(".intro__subtitle");
 
 function showClick() {
   popupOpened.classList.add("popup_opened");
-  introTitle.textContent = nameInput.value;
-  introSubTitle.textContent = jobInput.value;
+  nameInput.value = introTitle.textContent;
+  jobInput.value = introSubTitle.textContent;
 }
 
 function closeForm() {
