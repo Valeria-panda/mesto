@@ -1,17 +1,20 @@
-.elements__text-like {
+.elements__delete {
+  position: absolute;
+  right: 18px;
+  top:18px;
   outline: none;
-  background-image: url(../../../images/like.svg);
+  background-image: url(../../../images/delete.svg);
   background-repeat: no-repeat;
   border: none;
   box-shadow: none;
   background-color: transparent;
   padding: 0;
-  max-width: 20.76px;
   width: 100%;
-  min-height: 18.13px;
   height: 100%;
+  max-width: 18px;
+  max-height: 19.3px;
 }
-.elements__text-like:hover {
+.elements__delete:hover {
   cursor: pointer;
   opacity: 0.6;
   transition: ease-in-out 0.3s;
