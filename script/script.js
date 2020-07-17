@@ -9,13 +9,17 @@ const jobInput = formElement.querySelector(".popup__input_job");
 const intro = document.querySelector(".intro");
 const introTitle = intro.querySelector(".intro__title");
 const introSubTitle = intro.querySelector(".intro__subtitle");
+const addButton = profile.querySelector(".profile__button");
+const popupCardsOpened = document.querySelector(".popup-cards");
+const formCardsElement = document.querySelector(".popup-cards__form");
+const popupCardsClose = document.querySelector(".popup-cards__button");
 
+//вывод и закрытие попапа при редактирование профиля 
 function showClick() {
   popupOpened.classList.add("popup_opened");
   nameInput.value = introTitle.textContent;
   jobInput.value = introSubTitle.textContent;
 }
-
 function closeForm() {
   popupOpened.classList.remove("popup_opened");
   formElement.reset();
@@ -26,14 +30,7 @@ function formElementSubmitHandler(evt) {
   introSubTitle.textContent = jobInput.value;
   closeForm();
 }
-
 popupClose.addEventListener("click", closeForm);
 formElement.addEventListener("submit", formElementSubmitHandler);
 editButton.addEventListener("click", showClick);
 
-
-/*function toggleclick() {
-    popupOpened.classList.toggle('popup_opened');
-}
-editButton.addEventListener("click", toggleclick);
-popupClose.addEventListener("click", toggleclick)*/

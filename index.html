@@ -28,7 +28,7 @@
           </div>
           <button type="button" class="profile__button"></button>
         </section>
-        <section class="elements section">
+        <!--<section class="elements section">
           <ul class="elements__list">
             <li class="elements__item">
               <img src="./images/elements1.png" alt="фотография в вашем профиле" class="elements__item-img">
@@ -73,7 +73,8 @@
               </div>
             </li>
           </ul>
-        </section>
+        </section>!-->
+        <section class="elements section"></section>
       </main>
       <section class="popup">
           <div class="popup__background"></div>
@@ -85,10 +86,66 @@
             <button type="submit" class="popup__submit">Сохранить</button>
           </form>
       </section>
+      <section class="popup-cards">
+        <div class="popup-cards__background"></div>
+        <form class="popup-cards__form" name="popup">
+          <button type="reset" class="popup-cards__button"></button>
+          <h2 class="popup-cards__title">Новое место</h2>
+          <input name="place-input" class="popup-cards__input popup-cards__input_place" type="text" value="" required placeholder="Название">
+          <input name="way-input" class="popup-cards__input popup__input_way" type="text" value="" required placeholder="Ссылка на картинку">
+          <button type="submit" class="popup-cards__submit">Сохранить</button>
+        </form>
+    </section>
       <footer class="footer section">
         <p class="footer__copyright">© 2020 Mesto Russia</p>
       </footer>
     </div>
+    <template class="cards">
+      <ul class="elements__list">
+        <li class="elements__item">
+          <img src="./images/elements1.png" alt="фотография в вашем профиле" class="elements__item-img">
+          <div class="elements__text">
+            <h3 class="elements__text-title">Карачаевск</h3>
+            <button type="button" class="elements__text-like"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/elements2.png" alt="фотография в вашем профиле" class="elements__item-img">
+          <div class="elements__text">
+            <h3 class="elements__text-title">Гора Эльбрус</h3>
+            <button type="button" class="elements__text-like"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/elements3.png" alt="фотография в вашем профиле" class="elements__item-img">
+          <div class="elements__text">
+            <h3 class="elements__text-title">Домбай</h3>
+            <button type="button" class="elements__text-like"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/elements1.png" alt="фотография в вашем профиле" class="elements__item-img">
+          <div class="elements__text">
+            <h3 class="elements__text-title">Карачаевск</h3>
+            <button type="button" class="elements__text-like"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/elements2.png" alt="фотография в вашем профиле" class="elements__item-img">
+          <div class="elements__text">
+            <h3 class="elements__text-title">Гора Эльбрус</h3>
+            <button type="button" class="elements__text-like"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/elements3.png" alt="фотография в вашем профиле" class="elements__item-img">
+          <div class="elements__text">
+            <h3 class="elements__text-title">Домбай</h3>
+            <button type="button" class="elements__text-like"></button>
+          </div>
+        </li>
+      </ul>
+    </template>
     <script src="./script/script.js"></script>
   </body>
 </html>

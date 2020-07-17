@@ -1,0 +1,25 @@
+.popup-cards__button {
+  background-image: url(../../../images/cross.svg);
+  border: none;
+  box-shadow: none;
+  min-height: 40.7px;
+  max-width: 40.7px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-size: cover;
+  background-color: transparent;
+  align-self: flex-end;
+  margin-right: -40px;
+  margin-top: -40px;
+  cursor: pointer;
+}
+.popup-cards__button:hover {
+  opacity: 0.6;
+  transition: ease-in-out 0.3s;
+}
+@media screen and (max-width:385px){
+  .popup-cards__button{
+  margin-right: 0;
+  }
+}

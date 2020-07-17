@@ -1,0 +1,12 @@
+@import url(./__background/popup-cards__background.css);
+@import url(./__form/popup-cards__form.css);
+@import url(./__input/popup-cards__input.css);
+@import url(./__input/_name/popup-cards__input_name.css);
+@import url(./__input/_job/popup-cards__input_job.css);
+@import url(./__title/popup-cards__title.css);
+@import url(./__button/popup-cards__button.css);
+@import url(./__submit/popup-cards__submit.css);
+
+.popup-cards {
+  display: none;
+}
