@@ -81,17 +81,22 @@ const initialCards = [
   }
 ];
 //добавление карты 
+
+const elements = document.querySelector(".elements__list");
 initialCards.forEach(function addCards() {
-  const elements = document.querySelector(".elements__list");
   const cardsTemplate = document.querySelector('.cards').content;
   //в элемент кардсэлемент склонировали всё содержимое между тегами темплэйт, теперь эту переменную с содержимым можно вставить везде где надо.
   const cardsElement = cardsTemplate.cloneNode(true);
     
   elements.append(cardsElement);
-  });
+});
   
-  const buttonLike = document.querySelector('.elements__text-like');
-  buttonLike.addEventListener('click', function (evt) {
-  const button = evt.target;
-  button.classList.toggle('elements__text-like_active');
-  });
+function like() {
+  elements.addEventListener('click', function(evt) {
+  if (evt.target.classList.contains('elements__text-like')) {
+    const button = evt.target;
+    button.classList.toggle('elements__text-like_active');
+  }
+});
+}
+like();
