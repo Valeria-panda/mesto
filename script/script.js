@@ -15,6 +15,8 @@ const popupOpened = document.querySelector(".popup");
 const popupOpenedCards = document.querySelectorAll(".popup")[1];
 
 const formElement = document.querySelector(".popup__form");
+const formElementAddCard = document.querySelectorAll(".popup__form")[1];
+
 const nameInput = formElement.querySelector(".popup__input_name");
 const jobInput = formElement.querySelector(".popup__input_job");
 const intro = document.querySelector(".intro");
@@ -123,3 +125,23 @@ elements.addEventListener('click', function (evt) {
 });
 }
 deleteCard();
+
+
+const photoCard = document.querySelector('.popup-photo');
+const photoImage = photoCard.querySelector('.popup-photo__image');
+const photoText = photoCard.querySelector('.popup-photo__title');
+
+
+
+//функция добавления карточки пользователем 
+const submitButtonCard = formElementAddCard.querySelector('.popup__submit');
+const cardName = formElementAddCard.querySelector('.popup__input_place');
+const cardLink = formElementAddCard.querySelector('.popup__input_way');
+submitButtonCard .addEventListener('click', function (evt) {
+  evt.preventDefault();  
+  cardName.value=name;
+  cardLink.value=link;
+  addCards(name, link);
+  closeForm(popupOpenedCards);
+});
+

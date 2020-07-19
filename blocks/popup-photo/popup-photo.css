@@ -1,0 +1,10 @@
+@import url(./__background/popup-photo__background.css);
+@import url(./__button/popup-photo__button.css);
+@import url(./__image/popup-photo__image.css);
+@import url(./_opened/popup-photo_opened.css);
+@import url(./__title/popup-photo__title.css);
+
+
+.popup-photo{
+    display: none;
+}
