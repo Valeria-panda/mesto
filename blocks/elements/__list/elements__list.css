@@ -4,10 +4,9 @@
   margin: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 369px);
   grid-column-gap: 18px;
   grid-row-gap: 20px;
-  grid-auto-flow: column;
 }
 
 @media screen and (max-width: 1024px) {
