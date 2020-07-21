@@ -29,6 +29,11 @@ const name = document.querySelector('.elements__text-title');
 const link = document.querySelector('.elements__item-img');
 const elements = document.querySelector(".elements__list");
 
+const submitButtonCard = popupOpenedCards.querySelector('.popup__submit');
+const cardName = popupOpenedCards.querySelector('.popup__input_place');
+const cardLink = popupOpenedCards.querySelector('.popup__input_way');
+
+
 //массив который мы будем выводить 
 const initialCards = [
   {
@@ -65,7 +70,8 @@ function showClick(form) {
 //функция закрытия попапов нажатием на крестик
 function closeForm(form) { 
   form.classList.remove('popup_opened'); 
-  formElement.reset(); 
+  formElement.reset();
+  formElementAddCard.reset(); 
 } 
 
 //слушатели событий
@@ -126,22 +132,12 @@ elements.addEventListener('click', function (evt) {
 }
 deleteCard();
 
-
-const photoCard = document.querySelector('.popup-photo');
-const photoImage = photoCard.querySelector('.popup-photo__image');
-const photoText = photoCard.querySelector('.popup-photo__title');
-
-
-
 //функция добавления карточки пользователем 
-const submitButtonCard = formElementAddCard.querySelector('.popup__submit');
-const cardName = formElementAddCard.querySelector('.popup__input_place');
-const cardLink = formElementAddCard.querySelector('.popup__input_way');
-submitButtonCard .addEventListener('click', function (evt) {
-  evt.preventDefault();  
-  cardName.value=name;
-  cardLink.value=link;
-  addCards(name, link);
-  closeForm(popupOpenedCards);
-});
 
+submitButtonCard.addEventListener('click', function(evt) {
+evt.preventDefault();
+cardName.textContent ='';
+cardLink.src = '';
+addCards(cardName.value, cardLink.value);
+closeForm(popupOpenedCards);
+});
