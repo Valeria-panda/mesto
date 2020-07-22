@@ -52,20 +52,18 @@
           <button type="submit" class="popup__submit">Сохранить</button>
         </form>
     </section>
-
-
-    <section class="popup-photo">
-      <div class="popup-photo__background"></div>
-        <button type="reset" class="popup-photo__button"></button>
-        <img class="popup-photo__image" src="" alt="">
-        <h3 class="popup-photo__title"></h3>
-  </section>
-
-
-      <footer class="footer section">
-        <p class="footer__copyright">© 2020 Mesto Russia</p>
-      </footer>
-    </div>
+    <section class="popup">
+      <div class="popup__background"></div>
+        <div class="popup__photo-container">
+          <button type="reset" class="popup__button popup__button_photo"></button>
+          <img class="popup__image" src="" alt=" ">
+          <h2 class="popup__title popup__title_photo"></h2>
+        </div>
+    </section>
+    <footer class="footer section">
+      <p class="footer__copyright">© 2020 Mesto Russia</p>
+    </footer>
+  </div>
     <template class="cards">
       <li class="elements__item">
         <img src="" alt="фотография в вашем профиле" class="elements__item-img">
