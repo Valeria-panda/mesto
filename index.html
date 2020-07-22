@@ -32,9 +32,9 @@
           <ul class="elements__list"></ul>
         </section>
       </main>
-      <section class="popup">
+      <section class="popup" id="popup-editForm">
           <div class="popup__background"></div>
-          <form class="popup__form" name="popup">
+          <form class="popup__form" name="popup" id="popup-edit-form">
             <button type="reset" class="popup__button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
             <input name="name-input" class="popup__input popup__input_name" type="text" value="Жак-Ив Кусто" required placeholder="Введите имя">
@@ -42,9 +42,9 @@
             <button type="submit" class="popup__submit">Сохранить</button>
           </form>
       </section>
-      <section class="popup">
+      <section class="popup" id="popup-addCard">
         <div class="popup__background"></div>
-        <form class="popup__form" name="popup">
+        <form class="popup__form" name="popup" id="popup-add-card">
           <button type="reset" class="popup__button"></button>
           <h2 class="popup__title">Новое место</h2>
           <input name="place-input" class="popup__input popup__input_place" type="text" value="" required placeholder="Название">
@@ -52,11 +52,11 @@
           <button type="submit" class="popup__submit">Сохранить</button>
         </form>
     </section>
-    <section class="popup">
+    <section class="popup" id="popup-openPhoto">
       <div class="popup__background popup__background_photo"></div>
         <div class="popup__photo-container">
           <button type="reset" class="popup__button popup__button_photo"></button>
-          <img class="popup__image" src="" alt=" ">
+          <img class="popup__image" src="" alt="">
           <h2 class="popup__title popup__title_photo"></h2>
         </div>
     </section>
@@ -66,7 +66,7 @@
   </div>
     <template class="cards">
       <li class="elements__item">
-        <img src="" alt="фотография в вашем профиле" class="elements__item-img">
+        <img src="" alt="" class="elements__item-img">
          <button type="button" class="elements__delete"></button>
          <div class="elements__text">
          <h3 class="elements__text-title"></h3>

@@ -3,14 +3,16 @@ const profile = document.querySelector(".profile");
 const editButton = profile.querySelector(".profile__edit-button");// кнопка реактировать профиль
 const addButton = profile.querySelector(".profile__button");// кнопка добавить карточку с фото
 
-const popupOpened = document.querySelector(".popup");//модалка редактирования карты
-const popupOpenedCards = document.querySelectorAll(".popup")[1];//модалка добавления карты
+const popupOpened = document.querySelector("#popup-editForm");//модалка редактирования профиля
+const popupOpenedCards = document.querySelector("#popup-addCard");//модалка добавления карты
+const photoPopup = document.querySelector("#popup-openPhoto");//модалка окрытия фото
 
-const popupClose = document.querySelector(".popup__button");//кнопки закрытия модалки редактирования профиля
+const popupClose = popupOpened.querySelector(".popup__button");//кнопки закрытия модалки редактирования профиля
 const popupCloseCards = popupOpenedCards.querySelector(".popup__button");//кнопки закрытия модалки добавления карточки с фото
+const popupClosePhoto = photoPopup.querySelector(".popup__button");//кнопки закрытия модалки с фото
 
-const formElement = document.querySelector(".popup__form");//форма редактирования профиля
-const formElementAddCard = popupOpenedCards.querySelector(".popup__form");//форма для реадктирования данных для создания карты 
+const formElement = popupOpened.querySelector("#popup-edit-form");//форма редактирования профиля
+const formElementAddCard = popupOpenedCards.querySelector("#popup-add-card");//форма для реадктирования данных для создания карты 
 
 const nameInput = formElement.querySelector(".popup__input_name");//инпут для добавления имени в профиле
 const jobInput = formElement.querySelector(".popup__input_job");//инпут для добавления профессии в профиле
@@ -27,10 +29,10 @@ const submitButtonCardPhoto = popupOpenedCards.querySelector('.popup__submit');/
 const cardName = popupOpenedCards.querySelector('.popup__input_place');//инпут во второй форме для названия места
 const cardLink = popupOpenedCards.querySelector('.popup__input_way');//инпут во второй форме для ссылки на картинку
 
-const photoPopup = document.querySelectorAll('.popup')[2];
+
 const photoTitle = photoPopup.querySelector('.popup__title');
 const photoImage = photoPopup.querySelector('.popup__image');
-const popupClosePhoto = photoPopup.querySelector(".popup__button");//кнопки закрытия модалки с фото
+
 const elements = document.querySelector(".elements__list");
 
 const initialCards = [
@@ -117,12 +119,14 @@ function createCard(data) {
   titleImage.addEventListener('click', function handledPhotoCards() {
   photoTitle.textContent =  data.name;
   photoImage.src = data.link;
+  photoImage.alt = data.name;
   showClickPhoto();
   });
 
   titleCard.textContent = data.name;
   titleImage.src = data.link;
-  
+  titleImage.alt = data.name;
+
   return cardsElement;
 }
 
