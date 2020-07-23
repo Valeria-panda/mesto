@@ -25,6 +25,7 @@ const cardsTemplate = document.querySelector('.cards').content.querySelector('.e
 
 const submitButtonCard = popupOpened.querySelector('.popup__submit');//кнопка 'сохранить' в модалке редактирования
 const submitButtonCardPhoto = popupOpenedCards.querySelector('.popup__submit');//кнопка 'сохранить' в модалке добавлеия карточки с фото
+const submitButtonComments = photoPopup.querySelector('.popup__submit');//кнопка 'сохранить' в модалке открытия фотки
 
 const cardName = popupOpenedCards.querySelector('.popup__input_place');//инпут во второй форме для названия места
 const cardLink = popupOpenedCards.querySelector('.popup__input_way');//инпут во второй форме для ссылки на картинку
@@ -90,6 +91,7 @@ closeForm(popupOpenedCards);
 }); 
 popupClosePhoto.addEventListener('click', function() {
   closeForm(photoPopup);
+  comment.reset();
 }); 
 formElement.addEventListener("submit",formElementSubmitHandler);
 submitButtonCardPhoto.addEventListener('click', addCardSubmitHandler);
@@ -148,7 +150,32 @@ function addCardSubmitHandler(evt) {
 function showClickPhoto() {
   photoPopup.classList.add('popup_opened');  
 } 
+//
+//const containerComment =  photoPopup.querySelector('.popup__comments');
+const noComments = photoPopup.querySelector('.popup__nocomments');
+const containerComments = photoPopup.querySelector('.popup__comments-container');
 
+function addComments(commentValue) {
+  const commentTemplate = document.querySelector('.comments').content;
+  const commentElement = commentTemplate.cloneNode(true);
+  commentElement.querySelector('.popup__comments').textContent = commentValue;
+  containerComments.prepend(commentElement);
+}
+
+//это мои попыткисделать скрол для контейнера с коментами,если их больше 3 штук
+function a (){
+  if(commentElement.length === 3){
+    containerComments.setAttribute("style", "overflow:scroll");
+  }
+}
+
+
+submitButtonComments.addEventListener('click', function() {
+  const comment = photoPopup.querySelector('.popup__input_comments');
+  addComments(comment.value);
+  noComments.setAttribute("style", "display:none");
+  comment.value = '';
+});
 
 //Вариант кода мой, до просмотра вебинара от Лизы Гриненко
 /*//функция добавления тэмплэйт элемента с его содержимым на страничку в секцию elements и рендеринга 6 карточек
