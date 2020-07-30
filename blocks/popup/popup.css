@@ -11,11 +11,7 @@
 @import url(./__submit/_comment/popup__submit_comment.css);
 @import url(./__image/popup__image.css);
 @import url(./__photo-container/popup__photo-container.css);
-@import url(./__comments/popup__comments.css);
-@import url(./__input/_comments/popup__input_comments.css);
-@import url(./__nocomments/popup__nocomments.css);
-@import url(./__comments-container/popup__comments-container.css);
-@import url(./__input-comments/popup__input-comments.css);
+
 
 .popup {
   position: absolute;

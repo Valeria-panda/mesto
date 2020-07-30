@@ -36,7 +36,7 @@ const photoImage = photoPopup.querySelector('.popup__image');
 
 const elements = document.querySelector(".elements__list");
 
-const initialCards = [
+/*const initialCards = [
   {
     name: 'Аракульские скалы',
     link: 'https://lh3.googleusercontent.com/pw/ACtC-3d_X_Dhx8a-um97SpAA6pgz_nxcgH0sSKKWMy9fab3gN7J0XOltUrGtMYKcAMrlNsomvSAH0XTy-OLvuF2mGhB_mOSNUEap0Cw24tEIXwVhyvWXsR_BVI0zjkITyXOAgWZDmuSNtfVrXXQr1ZpEYmEq=w418-h625-no?authuser=0'
@@ -61,7 +61,34 @@ const initialCards = [
      name: 'Киргизия. Ледник Ак-сай',
      link: 'https://lh3.googleusercontent.com/hRrLJKWeFULVsUGZCCwM0vdhvKqfZiNFPe7JKMC78JmYpJEgFBuP2EUDYlyX4RXGMlwgKf0rGZ2Ze-RvZHm7cD2M-NrjJ3-37VYSOvmVI1IOLKTTd9o4zxssMLe05CjT8RJFJfqNZKzXDTgVHDm2NnAYEnKFSovcbIugXyZnvvuCv7dSO5GzSANwE3zMrEcnTeMlSAaIrUnH51LpIDR-P9_pSHwr6F2hIEoAQ2V5A8xm2VvSjh-yuiwBxOes72274YcIljMpSjCIrdZ5grGHlF_n89so2JFWJDAAaOu4Whhlaz7y5y-rHQC4K5TZcdJaXW6912oVKODCjsekGW6gWHJKGvUbjkO8IKXzVZjUhr40r-ZEabG06DAEon_ELC5kZ7GDXkVCWFH3BY6HHal3iZVnl2Utk-h60m-nD7YptjACAB934oliWHmQjYT17r3VyxFgYorTxHLr9H3ndLbCPgLmH_K5c0rLH-ka9y0BSKeDmxSQQ7WvAOqV2UvwZ_LAa_OcMBstrZj0QZJkvvRNJdyBw9Tj21A6_RJTuHh_FZQny1hLNOMTfV4MP9MG-zSBvrx4i3I12JCHJG1lITsgTkCBPtU_MSehBlgORyqa8xySzA2EzUnrf8HVflgUfXgpRKlP8D6zl01MB5KuB9vBS75RH1sdibVDF7M7xi8higH5YnLS-6JjqwrAmd6uRw=w1010-h576-no?authuser=0'
   }
-] //массив который мы будем выводить 
+] */ 
+
+const initialCards = [
+    {
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
 
 //функция открытия первой модалки
 function showClick(form) {
@@ -150,34 +177,9 @@ function addCardSubmitHandler(evt) {
 function showClickPhoto() {
   photoPopup.classList.add('popup_opened');  
 } 
-//
-//const containerComment =  photoPopup.querySelector('.popup__comments');
-const noComments = photoPopup.querySelector('.popup__nocomments');
-const containerComments = photoPopup.querySelector('.popup__comments-container');
-
-function addComments(commentValue) {
-  const commentTemplate = document.querySelector('.comments').content;
-  const commentElement = commentTemplate.cloneNode(true);
-  commentElement.querySelector('.popup__comments').textContent = commentValue;
-  containerComments.prepend(commentElement);
-}
-
-//это мои попыткисделать скрол для контейнера с коментами,если их больше 3 штук
-function a (){
-  if(commentElement.length === 3){
-    containerComments.setAttribute("style", "overflow:scroll");
-  }
-}
 
 
-submitButtonComments.addEventListener('click', function() {
-  const comment = photoPopup.querySelector('.popup__input_comments');
-  addComments(comment.value);
-  noComments.setAttribute("style", "display:none");
-  comment.value = '';
-});
-
-//Вариант кода мой, до просмотра вебинара от Лизы Гриненко
+//Вариант кода первый, ущербный
 /*//функция добавления тэмплэйт элемента с его содержимым на страничку в секцию elements и рендеринга 6 карточек
 
 /*initialCards.forEach((data) => {
