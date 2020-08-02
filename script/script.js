@@ -144,7 +144,6 @@ function createCard(data) {
   deleteButton.addEventListener('click', function handledeleteClick() {
     deleteButton.closest('.elements__item').remove();
   });
-  //слушатель 
   titleImage.addEventListener('click', function handledPhotoCards() {
   photoTitle.textContent =  data.name;
   photoImage.src = data.link;
@@ -179,70 +178,6 @@ function showClickPhoto() {
 } 
 
 
-//Вариант кода первый, ущербный
-/*//функция добавления тэмплэйт элемента с его содержимым на страничку в секцию elements и рендеринга 6 карточек
 
-/*initialCards.forEach((data) => {
-  const cardsElement = cardsTemplate.cloneNode(true);
-  const titleCard = cardsElement.querySelector('.elements__text-title').textContent = data.name;
-  const titleImage = cardsElement.querySelector('.elements__item-img').src = data.link;
-  elements.prepend(cardsElement);
 
-});
-//функция добавления карточки пользователем 
 
-//вариант второй вывода 6 карт по дефолту на страницу)
-function addCards(name, link) {
-  const cardsElement = cardsTemplate.cloneNode(true);
-  const titleCard = cardsElement.querySelector('.elements__text-title').textContent = name;
-  const titleImage = cardsElement.querySelector('.elements__item-img').src = link;
-  elements.prepend(cardsElement);
-}
-//массив переберется 6 раз и добавится 6 элементов на страницу. в функцию передаем значения имени и ссылки 
-initialCards.forEach(function addArr(item){
-addCards(item.name, item.link);
-});
-
-submitButtonCard.addEventListener('click', function(evt) {
-  evt.preventDefault();
-  cardName.textContent = '';
-  cardLink.src = '';
-  addCards(cardName.value, cardLink.value);
-  closeForm(popupOpenedCards);
-});
-
-//функция лайк / дизлайк
-function like() {
-  elements.addEventListener('click', function(evt) {
-  if (evt.target.classList.contains('elements__text-like')) {
-  const button = evt.target;
-  button.classList.toggle('elements__text-like_active');
-  }
-});
-}
-like();
-
-//функция удаления карты
-function deleteCard() {
-elements.addEventListener('click', function (evt) {
-  if (evt.target.classList.contains('elements__delete')) {
-  const eventTarget = evt.target;
-  eventTarget.closest('.elements__item').remove();
-  }
-});
-}
-deleteCard();
-const photoPopup = document.querySelector('.popup-photo');
-const photoTitle = photoPopup.querySelector('.popup-photo__title');
-const photoImage = photoPopup.querySelector('.popup-photo__image');
-function popPhotoOpen(){
-photoPopup.classList.add('popup-photo_opened'); 
-photoTitle.textContent = titleName;
-photoImage.src = titleCard;
-}
-elements.addEventListener('click', function(evt) {
-  if (evt.target.classList.contains('elements__item-img')) {
-    popPhotoOpen(photoPopup);
-}
-});
-*/

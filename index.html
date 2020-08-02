@@ -34,21 +34,25 @@
       </main>
       <section class="popup" id="popup-editForm">
           <div class="popup__background"></div>
-          <form class="popup__form" name="popup" id="popup-edit-form">
+          <form class="popup__form" name="popup" id="popup-edit-form" novalidate>
             <button type="reset" class="popup__button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input name="name-input" class="popup__input popup__input_name" type="text" value="Жак-Ив Кусто" required placeholder="Введите имя">
-            <input name="job-input" class="popup__input popup__input_job" type="text" value="Исследователь океана" required placeholder="Чем вы занимаетесь?">
+            <input name="name-input" class="popup__input popup__input_name" type="text" value="Жак-Ив Кусто" required placeholder="Введите имя" minlength="2" maxlength="40" autocomplete="off">
+            <span class="popup__error" id="name-error"></span>
+            <input name="job-input" class="popup__input popup__input_job" type="text" value="Исследователь океана" required placeholder="Чем вы занимаетесь?" minlength="2" maxlength="200" autocomplete="off">
+            <span class="popup__error" id="job-error"></span>
             <button type="submit" class="popup__submit">Сохранить</button>
           </form>
       </section>
       <section class="popup" id="popup-addCard">
         <div class="popup__background"></div>
-        <form class="popup__form" name="popup" id="popup-add-card">
+        <form class="popup__form" name="popup" id="popup-add-card" novalidate>
           <button type="reset" class="popup__button"></button>
           <h2 class="popup__title">Новое место</h2>
-          <input name="place-input" class="popup__input popup__input_place" type="text" value="" required placeholder="Название">
-          <input name="way-input" class="popup__input popup__input_way" type="text" value="" required placeholder="Ссылка на картинку">
+          <input name="place-input" class="popup__input popup__input_place" type="text" value="" placeholder="Название" minlength="1" maxlength="30" autocomplete="off" required>
+          <span class="popup__error" id="place-error"></span>
+          <input name="way-input" class="popup__input popup__input_way" type="url" value="" placeholder="Ссылка на картинку" autocomplete="off" required>
+          <span class="popup__error" id="url-error"></span>
           <button type="submit" class="popup__submit">Сохранить</button>
         </form>
     </section>
@@ -75,5 +79,6 @@
       </li>
     </template>
     <script src="./script/script.js"></script>
+    <script src="./script/validate.js"></script>
   </body>
 </html>
