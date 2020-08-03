@@ -2,14 +2,12 @@
 @import url(./__background/_photo/popup__bakground_photo.css);
 @import url(./__form/popup__form.css);
 @import url(./__input/popup__input.css);
-@import url(./__input/_name/popup__input_name.css);
-@import url(./__input/_job/popup__input_job.css);
 @import url(./__input/_type/_error/popup__input_type_error.css);
-@import url(./__input//_type/_valid/popup__input_type_valid.css);
 @import url(./__title/popup__title.css);
 @import url(./__title/_photo/popup__title_photo.css);
 @import url(./__button/popup__button.css);
 @import url(./__submit/popup__submit.css);
+@import url(./__submit/_inactive/popup__submit_inactive.css);
 @import url(./__image/popup__image.css);
 @import url(./__photo-container/popup__photo-container.css);
 @import url(./__input-error/popup__input-error.css);
