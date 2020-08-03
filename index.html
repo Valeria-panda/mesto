@@ -37,10 +37,15 @@
           <form class="popup__form" name="popup" id="popup-edit-form" novalidate>
             <button type="reset" class="popup__button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input name="name-input" class="popup__input popup__input_name" type="text" value="Жак-Ив Кусто" required placeholder="Введите имя" minlength="2" maxlength="40" autocomplete="off">
-            <span class="popup__error" id="name-error"></span>
-            <input name="job-input" class="popup__input popup__input_job" type="text" value="Исследователь океана" required placeholder="Чем вы занимаетесь?" minlength="2" maxlength="200" autocomplete="off">
-            <span class="popup__error" id="job-error"></span>
+            <label class="popup__input-label">
+              <input name="name" class="popup__input popup__input_name" type="text" value="Жак-Ив Кусто" required placeholder="Введите имя" minlength="2" maxlength="40" autocomplete="off">
+              <span class="popup__input-error" id="name-error"></span>
+            </label>
+            <label class="popup__input-label">
+              <input name="job" class="popup__input popup__input_job" type="text" value="Исследователь океана" required placeholder="Чем вы занимаетесь?" minlength="2" maxlength="200" autocomplete="off">
+              <span class="popup__input-error" id="job-error"></span>
+            </label>
+            
             <button type="submit" class="popup__submit">Сохранить</button>
           </form>
       </section>
@@ -49,10 +54,15 @@
         <form class="popup__form" name="popup" id="popup-add-card" novalidate>
           <button type="reset" class="popup__button"></button>
           <h2 class="popup__title">Новое место</h2>
-          <input name="place-input" class="popup__input popup__input_place" type="text" value="" placeholder="Название" minlength="1" maxlength="30" autocomplete="off" required>
-          <span class="popup__error" id="place-error"></span>
-          <input name="way-input" class="popup__input popup__input_way" type="url" value="" placeholder="Ссылка на картинку" autocomplete="off" required>
-          <span class="popup__error" id="url-error"></span>
+          <label class="popup__input-label">
+            <input name="place" class="popup__input popup__input_place" type="text" value="" placeholder="Название" minlength="1" maxlength="30" required autocomplete="off">
+            <span class="popup__input-error" id="place-error"></span>
+        </label>
+        <label class="popup__input-label">   
+          <input name="way" class="popup__input popup__input_way" type="url" value="" placeholder="Ссылка на картинку" required autocomplete="off">
+          <span class="popup__input-error" id="way-error"></span>
+        </label>
+       
           <button type="submit" class="popup__submit">Сохранить</button>
         </form>
     </section>
@@ -78,6 +88,7 @@
          </div>
       </li>
     </template>
+    
     <script src="./script/script.js"></script>
     <script src="./script/validate.js"></script>
   </body>
