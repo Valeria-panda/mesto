@@ -72,25 +72,33 @@ function showClick(form) {
   form.classList.add('popup_opened');
   nameInput.value = introTitle.textContent; 
   jobInput.value = introSubTitle.textContent;
+
 }
 //функция закрытия попапов нажатием на крестик
 function closeForm(form) {
   form.classList.remove('popup_opened'); 
   formElement.reset();
   formElementAddCard.reset();
+  document.removeEventListener('keydown', closePopupEscape);
+  document.removeEventListener('click',closePopupOnBackgroundClick);
 } 
-
 
 //слушатели событий
 editButton.addEventListener('click', function(){
   showClick(popupOpened); 
+  closePopupEscape(popupOpened);
+  closePopupOnBackgroundClick(popupOpened);
 });
 addButton.addEventListener('click', () => {
   showClick(popupOpenedCards);
+  closePopupEscape(popupOpenedCards);
+  closePopupOnBackgroundClick(popupOpenedCards);
 });
+
 //слушатель закрытия попапа редактирования формы
 popupClose.addEventListener('click', function() {
 closeForm(popupOpened);
+
 }); 
 //слушатель закрытия попапа добавления карточки
 popupCloseCards.addEventListener('click', function() {
@@ -99,37 +107,26 @@ closeForm(popupOpenedCards);
 //слушатель закрытия попапа с фотогарфией
 popupClosePhoto.addEventListener('click', function() {
   closeForm(photoPopup);
-  comment.reset();
 }); 
 
 
-//закрытие попапов нажатием на оверлэй
-backgroundClose.addEventListener('click', function () {
-   closeForm(popupOpened);
-});
-backgroundCloseCards.addEventListener('click', function () {
-  closeForm(popupOpenedCards);
-});
-backgroundClosePhoto.addEventListener('click', function () {
-  closeForm(photoPopup);
-});
+//закрытие модалки по клавише escape
+const closePopupEscape = (form) => {
+ document.addEventListener('keydown', (evt) => {
+  if(evt.key === 'Escape') {
+    closeForm(form);
+  }
+ }); 
+};
 
-//вот этот кусок сделать лучше
-document.addEventListener('keydown', (evt) => {
-  if(evt.key === 'Escape') {
-    closeForm(popupOpened);
-  }
-}); 
-document.addEventListener('keydown', (evt) => {
-  if(evt.key === 'Escape') {
-    closeForm(popupOpenedCards);
-  }
-}); 
-document.addEventListener('keydown', (evt) => {
-  if(evt.key === 'Escape') {
-    closeForm(photoPopup);
-  }
-}); 
+//закрытие модалки по клику на фон
+const closePopupOnBackgroundClick = (form) => {
+  document.addEventListener('click', (evt) => {
+   if(evt.target.classList.contains('popup__background')) {
+     closeForm(form);
+   }
+  }); 
+};
 
 
 formElement.addEventListener("submit",formElementSubmitHandler);
@@ -160,6 +157,7 @@ function createCard(data) {
   photoTitle.textContent =  data.name;
   photoImage.src = data.link;
   photoImage.alt = data.name;
+
   showClickPhoto();
   });
 
@@ -182,11 +180,15 @@ function addCardSubmitHandler(evt) {
   evt.preventDefault();
   renderCard({name: cardName.value, link: cardLink.value});
   closeForm(popupOpenedCards);
+  submitButtonCardPhoto.setAttribute('disabled','disabled');
+  submitButtonCardPhoto.classList.add('popup__submit_inactive');
 }
 
 //функция открытия попапа с фотографией
 function showClickPhoto() {
-  photoPopup.classList.add('popup_opened');  
+  photoPopup.classList.add('popup_opened');
+  closePopupEscape(photoPopup); 
+  closePopupOnBackgroundClick(photoPopup);
 } 
 
 
