@@ -67,14 +67,12 @@ const initialCards = [
     }
 ];
 
-//функция открытия первой модалки
+//функция открытия модалок.
 function showClick(form) {
   form.classList.add('popup_opened');
-  nameInput.value = introTitle.textContent; 
-  jobInput.value = introSubTitle.textContent;
-
 }
-//функция закрытия попапов нажатием на крестик
+
+//функция закрытия модалок
 function closeForm(form) {
   form.classList.remove('popup_opened'); 
   formElement.reset();
@@ -86,9 +84,12 @@ function closeForm(form) {
 //слушатели событий
 editButton.addEventListener('click', function(){
   showClick(popupOpened); 
+  nameInput.value = introTitle.textContent; 
+  jobInput.value = introSubTitle.textContent;
   closePopupEscape(popupOpened);
   closePopupOnBackgroundClick(popupOpened);
 });
+
 addButton.addEventListener('click', () => {
   showClick(popupOpenedCards);
   closePopupEscape(popupOpenedCards);
@@ -98,17 +99,17 @@ addButton.addEventListener('click', () => {
 //слушатель закрытия попапа редактирования формы
 popupClose.addEventListener('click', function() {
 closeForm(popupOpened);
-
 }); 
+
 //слушатель закрытия попапа добавления карточки
 popupCloseCards.addEventListener('click', function() {
 closeForm(popupOpenedCards);
 }); 
+
 //слушатель закрытия попапа с фотогарфией
 popupClosePhoto.addEventListener('click', function() {
   closeForm(photoPopup);
 }); 
-
 
 //закрытие модалки по клавише escape
 const closePopupEscape = (form) => {
@@ -157,8 +158,9 @@ function createCard(data) {
   photoTitle.textContent =  data.name;
   photoImage.src = data.link;
   photoImage.alt = data.name;
-
-  showClickPhoto();
+  showClick(photoPopup);
+  closePopupEscape(photoPopup); 
+  closePopupOnBackgroundClick(photoPopup);
   });
 
   titleCard.textContent = data.name;
@@ -183,13 +185,6 @@ function addCardSubmitHandler(evt) {
   submitButtonCardPhoto.setAttribute('disabled','disabled');
   submitButtonCardPhoto.classList.add('popup__submit_inactive');
 }
-
-//функция открытия попапа с фотографией
-function showClickPhoto() {
-  photoPopup.classList.add('popup_opened');
-  closePopupEscape(photoPopup); 
-  closePopupOnBackgroundClick(photoPopup);
-} 
 
 
 
