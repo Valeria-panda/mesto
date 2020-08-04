@@ -14,6 +14,7 @@ const popupClosePhoto = photoPopup.querySelector(".popup__button");//кнопк�
 const formElement = popupOpened.querySelector("#popup-edit-form");//форма редактирования профиля
 const formElementAddCard = popupOpenedCards.querySelector("#popup-add-card");//форма для реадктирования данных для создания карты 
 
+
 const nameInput = formElement.querySelector(".popup__input_name");//инпут для добавления имени в профиле
 const jobInput = formElement.querySelector(".popup__input_job");//инпут для добавления профессии в профиле
 

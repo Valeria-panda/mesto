@@ -12,42 +12,44 @@ const object = {
 }
 
 
-const setEventListeners = (formElement) => {
+
+const setEventListeners = (formElement, inputSelector, submitButtonSelector, inactiveButtonClass, 
+  inputErrorClass, errorClass ) => {
   // Находим все поля внутри формы, сделаем из них массив методом Array.from
-const inputs = Array.from(formElement.querySelectorAll(object.inputSelector));
-const buttonSubmit = formElement.querySelector(object.submitButtonSelector);
-toggleButtonState(inputs, buttonSubmit);
+const inputs = Array.from(formElement.querySelectorAll(inputSelector));
+const buttonSubmit = formElement.querySelector(submitButtonSelector);
+toggleButtonState(inputs, buttonSubmit, inactiveButtonClass);
   // Обойдём все элементы полученной коллекции
   inputs.forEach((inputElement) => {
     // каждому полю добавим обработчик события input
     inputElement.addEventListener('input', (evt) => {
-      isValid(formElement, inputElement);
-      toggleButtonState(inputs, buttonSubmit);
+      isValid(formElement, inputElement, inputErrorClass, errorClass);
+      toggleButtonState(inputs, buttonSubmit, inactiveButtonClass);
     });
   });
 };
 
 //функция показывающая сообщение ошибки и красное поле
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (formElement, inputElement, errorMessage, inputErrorClass, errorClass) => {
 const errorElement = formElement.querySelector(`#${inputElement.name}-error`);
-inputElement.classList.add(object.inputErrorClass);
+inputElement.classList.add(inputErrorClass);
 errorElement.textContent = errorMessage;
-errorElement.classList.add(object.errorClass);
+errorElement.classList.add(errorClass);
 };
 
 //функция скрывающая сообщение ошибки и красное поле
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
 const errorElement = formElement.querySelector(`#${inputElement.name}-error`);
-inputElement.classList.remove(object.inputErrorClass);
+inputElement.classList.remove(inputErrorClass);
 errorElement.textContent = '';
-errorElement.classList.remove(object.errorClass);
+errorElement.classList.remove(errorClass);
 };
 
-const isValid = (formElement, inputElement) => {
+const isValid = (formElement, inputElement, inputErrorClass, errorClass) => {
   if(!inputElement.validity.valid){
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, inputErrorClass, errorClass);
   }else{
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, inputErrorClass, errorClass);
   } 
 };
 
@@ -59,13 +61,13 @@ const hasInvalidInput = (inputs) => {
 };
 
 //отдельная функция для кнопки сабмита
-const toggleButtonState = (inputs, buttonSubmit) => {
+const toggleButtonState = (inputs, buttonSubmit, inactiveButtonClass) => {
   // Если есть хотя бы один невалидный инпут
   if (hasInvalidInput(inputs)) {
-    buttonSubmit.classList.add(object.inactiveButtonClass);
+    buttonSubmit.classList.add(inactiveButtonClass);
     buttonSubmit.disabled = true;
   } else {
-    buttonSubmit.classList.remove(object.inactiveButtonClass);
+    buttonSubmit.classList.remove(inactiveButtonClass);
      buttonSubmit.disabled = false;
   }
 };
@@ -78,7 +80,8 @@ function enableValidation({ formSelector, inputSelector, submitButtonSelector,ac
       formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-    setEventListeners(formElement);   
+    setEventListeners(formElement, inputSelector, submitButtonSelector, inactiveButtonClass, 
+      inputErrorClass, errorClass );   
   });
 };
 enableValidation(object);
