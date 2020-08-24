@@ -72,6 +72,7 @@ class FormValidator{
   }
 
   _setEventListeners () {
+
   const inputs = Array.from(this._formElement.querySelectorAll(this._object.inputSelector));
   this._toggleButtonState();
   inputs.forEach((inputElement) => {
@@ -97,9 +98,15 @@ class FormValidator{
 }
 
 
-const formEl = document.querySelector("#popup-editForm");
-const form = new FormValidator(object, formEl);
-const formValidation = form.enableValidation();
+const formEditProfile = document.querySelector("#popup-editForm");
+const form = new FormValidator(object, formEditProfile);
+const formValidationEditProfile = form.enableValidation();
+
+
+const formAddCard = document.querySelector("#popup-addCard")
+const formNewCard = new FormValidator(object, formAddCard);
+const formValidationAddNewCard = formNewCard.enableValidation();
+
 
 /*
 const setEventListeners = (formElement, inputSelector, submitButtonSelector, inactiveButtonClass, 
