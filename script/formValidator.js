@@ -6,26 +6,23 @@ class FormValidator{
     this._object = object;
   }
 
-  _showInputError (errorMessage) {
-    const inputElement = this._formElement.querySelector('.popup__input');
+  _showInputError = (inputElement, errorMessage) => {
     const errorElement = this._formElement.querySelector(`#${inputElement.name}-error`);
     inputElement.classList.add(this._object.inputErrorClass);
     errorElement.textContent = errorMessage;
     errorElement.classList.add(this._object.errorClass);
   }
   
-  _hideInputError () {
-    const inputElement = this._formElement.querySelector('.popup__input');
+  _hideInputError = (inputElement) => {
     const errorElement = this._formElement.querySelector(`#${inputElement.name}-error`);
     inputElement.classList.remove(this._object.inputErrorClass);
     errorElement.textContent = '';
     errorElement.classList.remove(this._object.errorClass);
   }
   
-  _isValid () {
-    const inputElement = this._formElement.querySelector('.popup__input');
+  _isValid = (inputElement) => {
     if(!inputElement.validity.valid){
-      this._showInputError(inputElement.validationMessage, inputElement);
+      this._showInputError(inputElement, inputElement.validationMessage);
     }else{
       this._hideInputError(inputElement);
     } 
@@ -61,14 +58,14 @@ class FormValidator{
   })
 }
   
-  enableValidation(){
+  enableValidation(inputElement){
     const forms = Array.from(document.querySelectorAll(this._object.formSelector));
     forms.forEach((formElement) => {
       formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     }); 
     
-    this._setEventListeners();
+    this._setEventListeners(inputElement,formElement);
     });
   }
   
