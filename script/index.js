@@ -109,6 +109,7 @@ const closePopupEscape = (form) => {
   }
  }); 
 };
+document.addEventListener('keydown', closePopupEscape);
 
 //закрытие модалки по клику на фон
 const closePopupOnBackgroundClick = (form) => {

@@ -20,6 +20,7 @@ const closePhotoPopup = () => {
 }
 
 
+
 //класс кард
 class Card {
   constructor(data, cardSelector){
@@ -38,9 +39,10 @@ class Card {
   //публчиный метод генерит карточки
   generateCard(){
     this._element = this._getTemplate();
+    this._cardImage = this._element.querySelector('.elements__item-img');
     this._setEventListeners();
-    this._element.querySelector('.elements__item-img').src = this._link;
-    this._element.querySelector('.elements__item-img').alt = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
     this._element.querySelector('.elements__text-title').textContent = this._name;
     this._element.querySelector('.elements__text-like');
     this._element.querySelector('.elements__delete');
@@ -57,7 +59,7 @@ class Card {
       this._handleDeleteCard();
     });
     //слушает клик по фото и открывает попап с фото
-    this._element.querySelector('.elements__item-img').addEventListener('click', () => {
+    this._cardImage.addEventListener('click', () => {
       this._showPhotoClick();
     });
     //слушает клик по крестику для закрытия попапа
