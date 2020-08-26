@@ -72,7 +72,7 @@ function closeForm(form) {
   formElement.reset();
   formElementAddCard.reset();
   document.removeEventListener('keydown', closePopupEscape);
-  document.removeEventListener('click',closePopupOnBackgroundClick);
+  document.removeEventListener('click', closePopupOnBackgroundClick);
 } 
 
 //слушатели событий
@@ -103,7 +103,7 @@ closeForm(popupOpenedCards);
 
 //закрытие модалки по клавише escape
 const closePopupEscape = (form) => {
- document.addEventListener('keydown', (evt) => {
+ document.addEventListener('keydown', function handleClosePopupEscape(evt){
   if(evt.key === 'Escape') {
     closeForm(form);
   }
@@ -112,7 +112,7 @@ const closePopupEscape = (form) => {
 
 //закрытие модалки по клику на фон
 const closePopupOnBackgroundClick = (form) => {
-  document.addEventListener('click', (evt) => {
+  document.addEventListener('click', function handleClosePopupOnBackgroundClick(evt){
    if(evt.target.classList.contains('popup__background')) {
      closeForm(form);
    }
