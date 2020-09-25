@@ -1,7 +1,7 @@
 # Проект 4: Место
 
 * [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
-* [Ссылка на страницу в Github](https://valeria-panda.github.io/mesto/.)
+* [Ссылка на страницу в Github](https://valeria-panda.github.io/mestoProject/)
 
 **О чём проект**
 

@@ -1,165 +1,84 @@
-import Card from './card.js';
-import FormValidator from './formValidator.js';
 
 
-
-const profile = document.querySelector(".profile");
-const editButton = profile.querySelector(".profile__edit-button");// кнопка реактировать профиль
-const addButton = profile.querySelector(".profile__button");// кнопка добавить карточку с фото
-const popupOpened = document.querySelector("#popup-editForm");//модалка редактирования профиля
-const popupOpenedCards = document.querySelector("#popup-addCard");//модалка добавления карты
-const popupClose = popupOpened.querySelector(".popup__button");//кнопки закрытия модалки редактирования профиля
-const popupCloseCards = popupOpenedCards.querySelector(".popup__button");//кнопки закрытия модалки добавления карточки с фото
-const formElement = popupOpened.querySelector("#popup-edit-form");//форма редактирования профиля
-const formElementAddCard = popupOpenedCards.querySelector("#popup-add-card");//форма для реадктирования данных для создания карты 
-const nameInput = formElement.querySelector(".popup__input_name");//инпут для добавления имени в профиле
-const jobInput = formElement.querySelector(".popup__input_job");//инпут для добавления профессии в профиле
-const intro = document.querySelector(".intro"); //профиль 
-const introTitle = intro.querySelector(".intro__title");//имя записанное в профиле(тайтл)
-const introSubTitle = intro.querySelector(".intro__subtitle");//профессия записанная в профиле 
-const submitButtonCardPhoto = popupOpenedCards.querySelector('.popup__submit');//кнопка 'сохранить' в модалке добавлеия карточки с фото
-const cardName = popupOpenedCards.querySelector('.popup__input_place');//инпут во второй форме для названия места
-const cardLink = popupOpenedCards.querySelector('.popup__input_way');//инпут во второй форме для ссылки на картинку
-const elements = document.querySelector(".elements__list");
-
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-
-const object = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit',
-  activeButtonClass: 'popup__submit',
-  inactiveButtonClass: 'popup__submit_inactive',
-  inputErrorClass: 'popup__input_type_error',
-  inputValidClass: 'popup__input_type_valid',
-  errorElement: 'popup__input-error',
-  errorClass: 'popup__input-error_visible'
-}
-
-//функция открытия модалок.
-function showClick(form) {
-  form.classList.add('popup_opened');
-}
-
-//функция закрытия модалок
-function closeForm(form) {
-  form.classList.remove('popup_opened'); 
-  formElement.reset();
-  formElementAddCard.reset();
-  document.removeEventListener('keydown', closePopupEscape);
-  document.removeEventListener('click', closePopupOnBackgroundClick);
-} 
-
-//слушатели событий
-editButton.addEventListener('click', function(){
-  showClick(popupOpened); 
-  nameInput.value = introTitle.textContent; 
-  jobInput.value = introSubTitle.textContent;
-  closePopupEscape(popupOpened);
-  closePopupOnBackgroundClick(popupOpened);
-});
-
-addButton.addEventListener('click', () => {
-  showClick(popupOpenedCards);
-  closePopupEscape(popupOpenedCards);
-  closePopupOnBackgroundClick(popupOpenedCards);
-});
-
-//слушатель закрытия попапа редактирования формы
-popupClose.addEventListener('click', function() {
-closeForm(popupOpened);
-}); 
-
-//слушатель закрытия попапа добавления карточки
-popupCloseCards.addEventListener('click', function() {
-closeForm(popupOpenedCards);
-}); 
+import Card from '../script/components/Card.js';
+import Section from '../script/components/Section.js';
+import FormValidator from '../script/components/FormValidator.js';
+import PopupWithImage from '../script/components/PopupWithImage.js';
+import PopupWithForm from '../script/components/PopupWithForm.js';
+import UserInfo from '../script/components/UserInfo.js';
+import {initialCards, object, editButton, addButton, nameInput, jobInput, introTitle, 
+  introSubTitle, cardListSelector} from '../script/utils/constant.js';
 
 
-//закрытие модалки по клавише escape
-const closePopupEscape = (form) => {
- document.addEventListener('keydown', function handleClosePopupEscape(evt){
-  if(evt.key === 'Escape') {
-    closeForm(form);
+const renderer = data => {
+  const handleCardClick = photoData => {
+    imagePopupClass.open(photoData)
   }
- }); 
-};
-document.addEventListener('keydown', closePopupEscape);
+  const card = new Card(data, '.cards', handleCardClick);
+  defaultCardList.addItem(card.generateCard());
+}
 
-//закрытие модалки по клику на фон
-const closePopupOnBackgroundClick = (form) => {
-  document.addEventListener('click', function handleClosePopupOnBackgroundClick(evt){
-   if(evt.target.classList.contains('popup__background')) {
-     closeForm(form);
-   }
-  }); 
-};
+const defaultCardList = new Section(
+  { 
+  items: initialCards,
+  renderer: renderer
+  }, 
+  cardListSelector);
 
-formElement.addEventListener("submit",formElementSubmitHandler);
-function formElementSubmitHandler(evt) { 
- evt.preventDefault();  
-  introTitle.textContent = nameInput.value; 
-  introSubTitle.textContent = jobInput.value; 
-  closeForm(popupOpened); 
-} 
-
-submitButtonCardPhoto.addEventListener('click', function addCardSubmitHandler(evt){
-  const cards = new Card({name:cardName.value,link:cardLink.value}, '.cards');
-  const cardEl = cards.generateCard(cardName.value,cardLink.value);
-  evt.preventDefault();
-  elements.prepend(cardEl);
-  closeForm(popupOpenedCards);
-  submitButtonCardPhoto.setAttribute('disabled','disabled');
-  submitButtonCardPhoto.classList.add('popup__submit_inactive');
-});
-
-//проходимся по массиву и рендерим 6 карточек на страницу
-initialCards.forEach((item) => {
-  const card = new Card(item, '.cards');
-  const cardElement = card.generateCard();
-  elements.prepend(cardElement);
-});
+//рендерим 6 карт на страницу
+defaultCardList.renderer();
 
 
+const userInfo = new UserInfo(
+  {
+    name: '.intro__title', 
+    job: '.intro__subtitle'
+  }
+);
 
+function editProfileSubmitForm(formData){
+  userInfo.setUserInfo(formData); 
+  editProfileForm.close();
+}
+
+function addCardSubmitForm(formData){
+  renderer(formData);
+  addNewCardForm.close();
+}
+
+
+//экземпляр класса для попапа с фотографией
+const imagePopupClass = new PopupWithImage("#popup-openPhoto");
+imagePopupClass.setEventListeners();
+
+// экземпляр класса для попапа добавления новой карточки 
+const addNewCardForm = new PopupWithForm("#popup-addCard", "#popup-add-card", addCardSubmitForm); 
+addNewCardForm.setEventListeners();
+
+//экземпляр класса для редактирования профиля 
+const editProfileForm = new PopupWithForm("#popup-editForm", "#popup-edit-form", editProfileSubmitForm);
+editProfileForm.setEventListeners();
+
+//экземпляр класса для валидации полей формы реадктирвоания профиля
 const formEditProfile = document.querySelector("#popup-editForm");
 const form = new FormValidator(object, formEditProfile);
-const formValidationEditProfile = form.enableValidation();
 
-
+//экземпляр класса для валидации полей формы добавления карты
 const formAddCard = document.querySelector("#popup-addCard")
 const formNewCard = new FormValidator(object, formAddCard);
-const formValidationAddNewCard = formNewCard.enableValidation();
 
 
+//слушатель кнопки редактировать профиль
+editButton.addEventListener('click', function(){
+  editProfileForm.open();
+  form.enableValidation();
+  nameInput.value = introTitle.textContent; 
+  jobInput.value = introSubTitle.textContent; 
+}); 
 
-
-
-
-
+//слушатель кнопки добавить карточку
+addButton.addEventListener('click', () => {
+  addNewCardForm.open();
+  formNewCard.enableValidation();
+});
 

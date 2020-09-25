@@ -28,8 +28,9 @@
           </div>
           <button type="button" class="profile__button"></button>
         </section>
-        <section class="elements section">
-          <ul class="elements__list"></ul>
+          <section class="elements section">
+          <ul class="elements__list">
+          </ul>
         </section>
       </main>
       <section class="popup" id="popup-editForm">
@@ -54,12 +55,12 @@
           <button type="reset" class="popup__button"></button>
           <h2 class="popup__title">Новое место</h2>
           <label class="popup__input-label">
-            <input name="place" class="popup__input popup__input_place" type="text" value="" placeholder="Название" minlength ="1" maxlength ="30" required autocomplete="off">
-            <span class="popup__input-error" id="place-error"></span>
+            <input name="name" class="popup__input popup__input_name" type="text" value="" placeholder="Название" minlength ="1" maxlength ="30" required autocomplete="off">
+            <span class="popup__input-error" id="name-error"></span>
         </label>
         <label class="popup__input-label">   
-          <input name="way" class="popup__input popup__input_way" type="url" value="" placeholder="Ссылка на картинку" required autocomplete="off" minlength ="2" maxlength ="200">
-          <span class="popup__input-error" id="way-error"></span>
+          <input name="link" class="popup__input popup__input_link" type="url" value="" placeholder="Ссылка на картинку" required autocomplete="off" minlength ="2" maxlength ="200">
+          <span class="popup__input-error" id="link-error"></span>
         </label>
           <button type="submit" class="popup__submit popup__submit_inactive" disabled>Сохранить</button>
         </form>
@@ -67,7 +68,7 @@
     <section class="popup" id="popup-openPhoto">
       <div class="popup__background popup__background_photo"></div>
         <div class="popup__photo-container">
-          <button type="reset" class="popup__button popup__button_photo"></button>
+          <button type="reset" class="popup__button"></button>
           <img class="popup__image" src="" alt="">
           <h2 class="popup__title popup__title_photo"></h2>
         </div>
@@ -79,14 +80,16 @@
     <template class="cards">
       <li class="elements__item">
         <img src="" alt="" class="elements__item-img">
-         <button type="button" class="elements__delete"></button>
-         <div class="elements__text">
-         <h3 class="elements__text-title"></h3>
-         <button type="button" class="elements__text-like"></button>
-         </div>
+        <button type="button" class="elements__delete"></button>
+        <div class="elements__text">
+          <h3 class="elements__text-title"></h3>
+          <button type="button" class="elements__text-like"></button>
+        </div>
       </li>
     </template>
     <script type = "module" src="./script/index.js"></script>
-    <!--<script src="./script/validate.js"></script>!-->
+    <!--<script src="./script/utils/constant.js"></script>!-->
+    <!--<script type = "module" src="./script/pages/index.js"></script>!-->
+    
   </body>
 </html>
