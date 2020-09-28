@@ -62,16 +62,16 @@ editProfileForm.setEventListeners();
 //экземпляр класса для валидации полей формы реадктирвоания профиля
 const formEditProfile = document.querySelector("#popup-editForm");
 const form = new FormValidator(object, formEditProfile);
-
+form.enableValidation();
 //экземпляр класса для валидации полей формы добавления карты
 const formAddCard = document.querySelector("#popup-addCard")
 const formNewCard = new FormValidator(object, formAddCard);
-
+formNewCard.enableValidation();
 
 //слушатель кнопки редактировать профиль
 editButton.addEventListener('click', function(){
   editProfileForm.open();
-  form.enableValidation();
+  //form.enableValidation();
   nameInput.value = introTitle.textContent; 
   jobInput.value = introSubTitle.textContent; 
 }); 
@@ -79,6 +79,6 @@ editButton.addEventListener('click', function(){
 //слушатель кнопки добавить карточку
 addButton.addEventListener('click', () => {
   addNewCardForm.open();
-  formNewCard.enableValidation();
+  //formNewCard.enableValidation();
 });
 
