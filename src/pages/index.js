@@ -1,13 +1,13 @@
+import './index.css';
 
-
-import Card from '../script/components/Card.js';
-import Section from '../script/components/Section.js';
-import FormValidator from '../script/components/FormValidator.js';
-import PopupWithImage from '../script/components/PopupWithImage.js';
-import PopupWithForm from '../script/components/PopupWithForm.js';
-import UserInfo from '../script/components/UserInfo.js';
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import FormValidator from '../components/FormValidator.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 import {initialCards, object, editButton, addButton, nameInput, jobInput, introTitle, 
-  introSubTitle, cardListSelector} from '../script/utils/constant.js';
+  introSubTitle, cardListSelector} from '../utils/constant.js';
 
 
 const renderer = data => {

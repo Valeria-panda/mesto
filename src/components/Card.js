@@ -1,6 +1,5 @@
-
-  //класс кард
-  export default class Card {
+//класс кард
+export default class Card {
     constructor(data, cardSelector, handleCardClick){
       this.data = data;
       //this._link = data.link;
@@ -41,18 +40,13 @@
     }
 
     //метод обработки лайка дизлайка
-    _handleLikeClick = () => {
+    _handleLikeClick(){
       this._element.querySelector('.elements__text-like').classList.toggle('elements__text-like_active');
     }
     //метод обработки удаления картчоки с фото
-    _handleDeleteCard = () => {
+    _handleDeleteCard(){
       this._element.querySelector('.elements__delete').closest('.elements__item').remove();
     }
 
 
   }
-  
-  
-
-  
-

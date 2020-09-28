@@ -1,26 +1,24 @@
-
-
 export default class FormValidator{
     constructor(object, formElement){
       this._formElement = formElement;
       this._object = object;
     }
   
-    _showInputError = (inputElement, errorMessage) => {
+    _showInputError(inputElement, errorMessage){
       const errorElement = this._formElement.querySelector(`#${inputElement.name}-error`);
       inputElement.classList.add(this._object.inputErrorClass);
       errorElement.textContent = errorMessage;
       errorElement.classList.add(this._object.errorClass);
     }
     
-    _hideInputError = (inputElement) => {
+    _hideInputError(inputElement){
       const errorElement = this._formElement.querySelector(`#${inputElement.name}-error`);
       inputElement.classList.remove(this._object.inputErrorClass);
       errorElement.textContent = '';
       errorElement.classList.remove(this._object.errorClass);
     }
     
-    _isValid = (inputElement) => {
+    _isValid(inputElement){
       if(!inputElement.validity.valid){
         this._showInputError(inputElement, inputElement.validationMessage);
       }else{
@@ -28,14 +26,14 @@ export default class FormValidator{
       } 
     }
     
-    _hasInvalidInput () {
+    _hasInvalidInput(){
       const inputs = Array.from(this._formElement.querySelectorAll(this._object.inputSelector));
       return inputs.some((inputElement) => {
       return !inputElement.validity.valid;
       })
     }
     
-    _toggleButtonState () {
+    _toggleButtonState(){
       const inputs = Array.from(this._formElement.querySelectorAll(this._object.inputSelector));
       const buttonSubmit = this._formElement.querySelector(this._object.submitButtonSelector);
       if (this._hasInvalidInput(inputs)) {
@@ -47,7 +45,7 @@ export default class FormValidator{
       }
     }
     
-    _setEventListeners () {
+    _setEventListeners(){
     const inputs = Array.from(this._formElement.querySelectorAll(this._object.inputSelector));
     this._toggleButtonState();
     inputs.forEach((inputElement) => {
@@ -73,4 +71,4 @@ export default class FormValidator{
     
   }
   
-  //enableValidation();
+
