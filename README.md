@@ -2,7 +2,7 @@
 
 * [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
 
-* [Ссылка на макет в Github]( https://valeria-panda.github.io/mesto)
+* [Ссылка на макет в Github](https://valeria-panda.github.io/mesto)
 
 **О чём проект**
 
