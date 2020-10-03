@@ -16,11 +16,16 @@
       <main class="content section">
         <section class="profile section">
           <div class="profile__section">
-            <img class="profile__avatar" src="./images/profileava.jpg" alt="аватар профиля">
+            <div class="profile__avatar">
+              <img class="profile__avatarimage" src="./images/profileava.jpg" alt="аватар профиля">
+              <div class="profile__cover">
+                <button type="button" class="profile__avatarbutton"></button>
+              </div>
+            </div>
             <div class="profile__intro">
               <div class="intro">
-                <h1 class="intro__title">Жак-Ив Кусто</h1>
-                <p class="intro__subtitle">Исследователь океана</p>
+                <h1 class="intro__title"></h1>
+                <p class="intro__subtitle"></p>
               </div>
               <button type="button" class="profile__edit-button"></button>
             </div>
@@ -72,6 +77,30 @@
           <h2 class="popup__title popup__title_photo"></h2>
         </div>
     </section>
+
+    <section class="popup" id="popup-avatarEditForm">
+      <div class="popup__background"></div>
+      <form class="popup__form" name="popup" id="popup-editavatar-form" novalidate>
+        <button type="reset" class="popup__button"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <label class="popup__input-label">
+          <input name="avatar" class="popup__input popup__input_avatar" type="url" value="" required placeholder="Ссылка на аватар">
+          <span class="popup__input-error" id="avatar-error"></span>
+        </label>
+        <button type="submit" class="popup__submit" disabled>Сохранить</button>
+      </form>
+    </section>
+
+    
+    <section class="popup" id="popup-deleteCards">
+      <div class="popup__background"></div>
+      <form class="popup__form" name="popup" id="popup-editavatar-form" novalidate>
+        <button type="reset" class="popup__button"></button>
+        <h2 class="popup__title">Вы уверенны?</h2>
+        <button type="submit" class="popup__submit" disabled>Да</button>
+      </form>
+    </section>
+
     <footer class="footer section">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
@@ -82,7 +111,10 @@
         <button type="button" class="elements__delete"></button>
         <div class="elements__text">
           <h3 class="elements__text-title"></h3>
+        <div class="elements__text_count">
           <button type="button" class="elements__text-like"></button>
+          <div class="elements__text-likecounter"></div>
+        </div>
         </div>
       </li>
     </template>
