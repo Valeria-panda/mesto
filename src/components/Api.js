@@ -8,6 +8,7 @@ export default class Api {
       return fetch(`${this._baseUrl}/cards`, {
         headers: this._headers,
       })
+      
       .then(this._getResponseData);
     }
   
@@ -36,7 +37,7 @@ export default class Api {
         headers: this._headers,
         method: "PATCH",
         body: JSON.stringify({
-          avatar: data.link,
+          avatar: data.avatar,
         }),
       })
       .then(this._getResponseData);
@@ -53,6 +54,14 @@ export default class Api {
         }),
       })
       .then(this._getResponseData);
+    }
+    
+    //удаление карточки 
+    deleteCard(cardId) {
+      return fetch(`${this._baseUrl}/cards/${cardId}`, {
+        headers: this._headers,
+        method: "DELETE",
+      }).then(this._getResponseData);
     }
 
     _getResponseData(res) {

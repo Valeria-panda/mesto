@@ -17,7 +17,7 @@
         <section class="profile section">
           <div class="profile__section">
             <div class="profile__avatar">
-              <img class="profile__avatarimage" src="./images/profileava.jpg" alt="аватар профиля">
+              <img class="profile__avatarimage" src="#" alt="аватар профиля">
               <div class="profile__cover">
                 <button type="button" class="profile__avatarbutton"></button>
               </div>
@@ -47,8 +47,8 @@
               <span class="popup__input-error" id="name-error"></span>
             </label>
             <label class="popup__input-label">
-              <input name="job" class="popup__input popup__input_job" type="text" value="" required placeholder="Чем вы занимаетесь?" minlength ="2" maxlength ="200" autocomplete="off">
-              <span class="popup__input-error" id="job-error"></span>
+              <input name="about" class="popup__input popup__input_job" type="text" value="" required placeholder="Чем вы занимаетесь?" minlength ="2" maxlength ="200" autocomplete="off">
+              <span class="popup__input-error" id="about-error"></span>
             </label>
             <button type="submit" class="popup__submit" disabled>Сохранить</button>
           </form>
@@ -80,7 +80,7 @@
 
     <section class="popup" id="popup-avatarEditForm">
       <div class="popup__background"></div>
-      <form class="popup__form" name="popup" id="popup-editavatar-form" novalidate>
+      <form class="popup__form" name="popup" id="popup-editavatar-form" novalidate method="POST" action="#">
         <button type="reset" class="popup__button"></button>
         <h2 class="popup__title">Обновить аватар</h2>
         <label class="popup__input-label">
@@ -94,7 +94,7 @@
     
     <section class="popup" id="popup-deleteCards">
       <div class="popup__background"></div>
-      <form class="popup__form" name="popup" id="popup-editavatar-form" novalidate>
+      <form class="popup__form" name="popup" id="popup-delete-form" novalidate>
         <button type="reset" class="popup__button"></button>
         <h2 class="popup__title">Вы уверенны?</h2>
         <button type="submit" class="popup__submit" disabled>Да</button>
@@ -108,7 +108,7 @@
     <template class="cards">
       <li class="elements__item">
         <img class="elements__item-img">
-        <button type="button" class="elements__delete"></button>
+        <button type="button" class="elements__delete elements__delete_visible"></button>
         <div class="elements__text">
           <h3 class="elements__text-title"></h3>
         <div class="elements__text_count">

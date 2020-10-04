@@ -1,4 +1,5 @@
 .elements__delete {
+  visibility: hidden;
   position: absolute;
   right: 18px;
   top:18px;

@@ -68,3 +68,6 @@ export const popupAvatar = document.querySelector("#popup-avatarEditForm");//Ð¼Ð
 export const avatarLink = popupAvatar.querySelector('.popup__input_avatar')
 
 export const submitButtonAvatar = popupAvatar.querySelector('.popup__submit');
+export const submitButtonCards = popupOpenedCards.querySelector('.popup__submit');
+export const popupDeleteCard = document.querySelector('#popup-deleteCards');
+export const popupDeleteButton = popupDeleteCard.querySelector('.popup__submit');

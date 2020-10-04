@@ -32,6 +32,13 @@ export default class Popup{
             this.close();
         });
         this._popupSelector.addEventListener('click', this._handleBackgroundClickClose);
+        
+        this._popupSelector.addEventListener("mousedown", (evt) => {
+            if (evt.target !== evt.currentTarget) {
+              return;
+            }
+            this.close();
+        });
     }
 
 }
