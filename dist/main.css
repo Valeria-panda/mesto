@@ -23,7 +23,8 @@
 .elements__text{display:flex;justify-content:space-between;align-items:center;max-width:246px;padding:25px 0 31px 21px}
 .elements__text_count{display:flex;flex-direction:column;min-width:21px;height:34px}
 .elements__text-title{color:#000;font-style:normal;font-weight:900;font-size:24px;line-height:1.2;padding:0;margin:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:190px}
-.elements__delete{position:absolute;right:18px;top:18px;outline:none;background-image:url(2af49b82d305a6ea3442447eb7c26bea.svg);background-repeat:no-repeat;border:none;box-shadow:none;background-color:transparent;padding:0;width:100%;height:100%;max-width:18px;max-height:19.3px}.elements__delete:hover{cursor:pointer;opacity:.6;transition:.3s ease-in-out}
+.elements__delete{visibility:hidden;position:absolute;right:18px;top:18px;outline:none;background-image:url(2af49b82d305a6ea3442447eb7c26bea.svg);background-repeat:no-repeat;border:none;box-shadow:none;background-color:transparent;padding:0;width:100%;height:100%;max-width:18px;max-height:19.3px}.elements__delete:hover{cursor:pointer;opacity:.6;transition:.3s ease-in-out}
+.elements__delete_visible{visibility:visible}
 .elements__text-like{outline:none;background-image:url(8485b8dfc8545390cbf08e6672dcaaf6.svg);background-repeat:no-repeat;border:none;box-shadow:none;background-color:transparent;padding:0;width:100%;height:100%}.elements__text-like:hover{cursor:pointer;opacity:.6;transition:.3s ease-in-out}
 .elements__text-likecounter{font-size:13px;line-height:1.2;font-family:Inter,Arial,sans-serif;width:9px;height:13px}
 .elements__text-like_active{background-image:url(a7ffe37dcb927ba0c46c5bed570b6501.svg)}
