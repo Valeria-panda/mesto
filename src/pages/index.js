@@ -116,8 +116,7 @@ popupWithDeleteCard.setEventListeners();
 
 const renderer = (data) => {
   const card = new Card(data, userId, '.cards', handleCardClick, handleDelete, deleteLike, putLike);
-  const cardElement = card.generateCard();
-  defaultCardList.addItem(cardElement);
+  defaultCardList.addItem(card.generateCard());
 
   function handleCardClick(photoData){
     imagePopupClass.open(photoData)
