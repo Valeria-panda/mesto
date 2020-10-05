@@ -18,8 +18,8 @@ const api = new Api({
       "Content-Type": "application/json",
     },
 });
-  
-function renderLoading(isLoading, button) {
+
+function submitLoading(isLoading, button) {
     if (isLoading) {
       button.textContent = "Сохранение..";
     } else {
@@ -27,7 +27,7 @@ function renderLoading(isLoading, button) {
     }
 }
 
-let initialCards = [];
+
 
 const userProfile = new UserInfo(
   {
@@ -36,16 +36,8 @@ const userProfile = new UserInfo(
     avatar: '.profile__avatarimage'
   }
 );
-
-//экземпляр класса для попапа с фотографией
-const imagePopupClass = new PopupWithImage("#popup-openPhoto");
-imagePopupClass.setEventListeners();
-//экземпляр класса для попапа уаления карточки
-const popupWithDeleteCard = new PopupWithDeleteCard("#popup-deleteCards", "#popup-delete-form");
-popupWithDeleteCard.setEventListeners();
-
+let initialCards = [];
 let userId = "";
-
 Promise.all([api.getInitialCards(), api.getUserInfo()])
   .then((result) => {
     const [items, userInfo] = result;
@@ -59,19 +51,18 @@ Promise.all([api.getInitialCards(), api.getUserInfo()])
 
 // экземпляр класса для попапа добавления новой карточки 
 const addNewCardForm = new PopupWithForm("#popup-addCard", "#popup-add-card", {submitForms: (item) => {
-  renderLoading(true, submitButtonCards);
+  submitLoading(true, submitButtonCards);
   api
     .postNewCard(item)
     .then((item) => {
       renderer(item);
       addNewCardForm.close();
-      console.log("profile updated");
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      renderLoading(false, submitButtonCards);
+      submitLoading(false, submitButtonCards);
     });
 },
 }) 
@@ -79,19 +70,18 @@ addNewCardForm.setEventListeners();
 
 //экземпляр класса для редактирования профиля 
 const editProfileForm = new PopupWithForm("#popup-editForm", "#popup-edit-form", {submitForms: (item) => {
-  renderLoading(true, submitButton);
+  submitLoading(true, submitButton);
   api
     .patchUserInfo(item)
     .then((item) => {
       userProfile.setUserInfo(item);
       editProfileForm.close();
-      console.log("profile updated");
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      renderLoading(false, submitButton);
+      submitLoading(false, submitButton);
     });
 },
 })
@@ -99,7 +89,7 @@ editProfileForm.setEventListeners();
 
 //экземпляр класса для редактирования аватара
 const popupAvatar = new PopupWithForm("#popup-avatarEditForm", "#popup-editavatar-form", {submitForms: (item) => {
-  renderLoading(true, submitButtonAvatar);
+  submitLoading(true, submitButtonAvatar);
   api
     .patchAvatar(item)
     .then((item) => {
@@ -110,15 +100,22 @@ const popupAvatar = new PopupWithForm("#popup-avatarEditForm", "#popup-editavata
       console.log(err);
     })
     .finally(() => {
-      renderLoading(false, submitButtonAvatar);
+      submitLoading(false, submitButtonAvatar);
     });
   }
 })
 popupAvatar.setEventListeners();
 
+//экземпляр класса для попапа с фотографией
+const imagePopupClass = new PopupWithImage("#popup-openPhoto");
+imagePopupClass.setEventListeners();
+
+//экземпляр класса для попапа уаления карточки
+const popupWithDeleteCard = new PopupWithDeleteCard("#popup-deleteCards", "#popup-delete-form");
+popupWithDeleteCard.setEventListeners();
 
 const renderer = (data) => {
-  const card = new Card(data, userId, '.cards', handleCardClick, handleDelete);
+  const card = new Card(data, userId, '.cards', handleCardClick, handleDelete, deleteLike, putLike);
   const cardElement = card.generateCard();
   defaultCardList.addItem(cardElement);
 
@@ -130,9 +127,8 @@ const renderer = (data) => {
       api
         .deleteCard(data._id)
         .then(() => {
-          card.handleDeleteImageCard();
+          card.removeCard();
           popupWithDeleteCard.close();
-          console.log("card deleted");
         })
         .catch((err) => {
           console.log(`${err}`);
@@ -140,8 +136,30 @@ const renderer = (data) => {
     })
     popupWithDeleteCard.open();
   }
-}
 
+  function deleteLike(cardId){
+    api
+    .deleteLike(cardId)
+    .then(() => {
+      console.log("U disliked photo");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
+  function putLike(cardId){
+    api
+      .putlike(cardId)
+      .then(() => {
+        console.log("U like photo");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+      
+}
 
 const defaultCardList = new Section(
   { 
@@ -150,10 +168,6 @@ const defaultCardList = new Section(
   }, 
   cardListSelector
 );
-
-
-
-
 
 //ВАЛИДАЦИЯ
 

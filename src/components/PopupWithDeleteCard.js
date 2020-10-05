@@ -6,14 +6,14 @@ export default class PopupWithDeleteCard extends Popup {
     this._formSelector = document.querySelector(formSelector);
   }
 
-  setFormSubmitHandler(handle) {
-    this._handleSubmit = handle;
+  setFormSubmitHandler(set) {
+    this._handleSubmit = set;
   }
 
   setEventListeners() {
     super.setEventListeners();
-    this._formSelector.addEventListener("submit", (e) => {
-    e.preventDefault();
+    this._formSelector.addEventListener("submit", (evt) => {
+    evt.preventDefault();
     this._handleSubmit();
     });
   }
