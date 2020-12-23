@@ -8,9 +8,11 @@
 
 ## Используемые технологии
 
-*[NodeJS](https://nodejs.org/en/)
-*[Webpack](https://webpack.js.org/)
-*ECMAScript 6 (ES6)
+* [NodeJS](https://nodejs.org/en/)
+
+* [Webpack](https://webpack.js.org/)
+
+* ECMAScript 6 (ES6)
 
 
 ## Функциональность проекта
