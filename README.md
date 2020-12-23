@@ -4,7 +4,7 @@
 
 * [Ссылка на страницу Github](https://valeria-panda.github.io/mesto/)
 
-# Project Mesto
+
 
 ## Используемые технологии
 
